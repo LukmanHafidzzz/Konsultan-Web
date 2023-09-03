@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +15,18 @@ use App\Http\Controllers\SessionController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+// Auth::routes();
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/login', [HomeController::class, 'login'])->name('login');
+// Route::get('/login', [HomeController::class, 'belajar'])->name('login');
+
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
